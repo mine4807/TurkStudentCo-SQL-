@@ -1,4 +1,4 @@
-
+/*Ödev cevapları dosya sonundadır. Kod çalıştırırken sıkıntı olmaması adına tablo oluşturma sorgularını da başa ekledim. */
 
 
 /*******************************************************************************
