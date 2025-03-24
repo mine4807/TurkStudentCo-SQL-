@@ -1,0 +1,21 @@
+--“USA” ülkesine ait, 2009 yılı içerisinde oluşturulmuş tüm faturaların (Invoice) toplamını listeleyen bir sorgu yazınız.
+SELECT total
+FROM invoice
+WHERE billing_country = 'USA' AND date_part('year', invoice.invoice_date) = 2009 ;
+
+--Tüm parça (track) bilgilerini, bu parçaların ait olduğu playlisttrack ve playlist tablolarıyla birleştirerek(JOIN)listeleyen bir sorgu yazınız.
+
+select *
+from track t1 
+inner join playlisttrack t2 on t1.track_id = t2.track_id
+inner join playlist t3 on t2.playlist_id=t3.playlist_id;
+
+/*"Let There Be Rock" adlı albüme ait tüm parçaları (Track) listeleyen, sanatçı (Artist) bilgisini
+de içeren bir sorgu yazınız. Ayrıca, sonuçları parça süresi (milliseconds) büyükten küçüğe
+sıralayınız.*/
+
+select t1.name as track_name, t3.artist_id, t3.name as artist_name, t1.milliseconds
+from track t1 
+inner join album t2 on t1.album_id = t2.album_id
+inner join artist t3 on t2.artist_id=t3.artist_id
+order by t1.milliseconds DESC;
